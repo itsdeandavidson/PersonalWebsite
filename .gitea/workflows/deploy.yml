@@ -30,9 +30,4 @@ jobs:
     - name: Run Docker Container
       run: |
         COMMIT_HASH=$(git rev-parse --short HEAD)
-        docker run -d -p 8080:80 blazor-app:${COMMIT_HASH}
-
-    - name: Wait for App to be Accessible
-      run: |
-        sleep 10
-        curl --silent --fail http://localhost:8080 || (echo "App failed to start" && exit 1)
+        docker run -d -network openresty_network -p 8080:80 blazor-app:${COMMIT_HASH}
