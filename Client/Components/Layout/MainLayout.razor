@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="Client.Classes.Themes.MyTheme" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+	<MudMainContent Class="z-100 relative mud-elevation-10 pa-0 ma-0" Style="@MainContentStyle">
+		<MudContainer MaxWidth="MaxWidth.False" Gutters="false">
+			<MudAppBar Elevation="0" Dense Fixed="false" Class="d-flex flex-grow-1">
+				<NavBar />
+			</MudAppBar>
+			@Body
+		</MudContainer>
+	</MudMainContent>
+
+	<MudContainer Class="sticky z-0" MaxWidth="MaxWidth.False" Gutters="false" Style="@FooterStyle">
+		<Footer />
+	</MudContainer>
+</MudLayout>
+
+@code {
+	private string? MainContentStyle =>
+		new StyleBuilder()
+			.AddStyle("min-height", "100vh")
+			.AddStyle("background-color", "var(--mud-palette-background)")
+			.Build();
+
+	private string? FooterStyle =>
+		new StyleBuilder()
+			.AddStyle("bottom", "0")
+			.AddStyle("background-color", "var(--mud-palette-secondary)")
+			.Build();
+}

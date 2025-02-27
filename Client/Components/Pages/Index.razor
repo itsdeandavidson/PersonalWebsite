@@ -1,0 +1,21 @@
+﻿@page "/"
+@inject ISnackbar snackbar
+<PageTitle>itsdeandavidson.co.uk - Home Page</PageTitle>
+
+<MudGrid Justify="Justify.Center" Spacing="0" Style="min-height: 80vh;" Class="d-flex flex-column gap-0 pa-4">
+	<MudItem xs="12" Class="d-flex justify-center align-center">
+		<MudContainer MaxWidth="MaxWidth.Medium" Gutters="false">
+			<MudText Typo="Typo.h3" HtmlTag="h1">Heyyy! 👋</MudText>
+			<MudText Typo="Typo.h5" HtmlTag="h2">I'm Dean Davidson, a full-stack developer based in Manchester, UK.</MudText>
+			<MudButton Variant="Variant.Filled" Color="Color.Secondary" Size="Size.Small" Class="ma-0 mt-2 pa-0 ps-2 pe-2" OnClick="@(() => ClickedNowButton())">What I'm doing now</MudButton>
+		</MudContainer>
+	</MudItem>
+</MudGrid>
+
+@code
+{
+	private void ClickedNowButton()
+	{
+		snackbar.Add("NowNowNow page coming soon!", Severity.Info);
+	}
+}
