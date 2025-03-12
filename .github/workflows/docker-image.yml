@@ -20,7 +20,7 @@ jobs:
           
     - name: docker login
       run: |
-        docker login -u $${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}} 
+        docker login -u ${{secrets.DOCKER_HUB_USERNAME}} -p ${{secrets.DOCKER_HUB_ACCESS_TOKEN}} 
         
     - name: Build the Docker image
       run: docker build ./Client --file Dockerfile --tag ${{ secrets.DOCKER_HUB_USERNAME }}/${{ secrets.DOCKER_HUB_REPO }}:${{ env.REPO_NAME }}-client
